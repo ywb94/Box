@@ -156,7 +156,12 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                     bundle.putString("sourceKey", vod.sourceKey);
                     if (vod.id.startsWith("msearch:")) {
                         bundle.putString("title", vod.name);
-                        jumpActivity(FastSearchActivity.class, bundle);
+                        //ywb 20241211修复首页搜索图形显示结果时闪退问题
+                        if (Hawk.get(HawkConfig.SEARCH_VIEW, 0) == 0)
+                            jumpActivity(SearchActivity.class, bundle);
+                        else
+                            jumpActivity(FastSearchActivity.class, bundle);
+                        //jumpActivity(FastSearchActivity.class, bundle);
                     } else {
                         jumpActivity(DetailActivity.class, bundle);
                     }

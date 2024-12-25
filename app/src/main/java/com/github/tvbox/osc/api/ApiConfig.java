@@ -131,7 +131,8 @@ public class ApiConfig {
 
     public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
         // Embedded Source : Update in Strings.xml if required
-        String apiUrl = Hawk.get(HawkConfig.API_URL, HomeActivity.getRes().getString(R.string.app_source));
+        // String apiUrl = Hawk.get(HawkConfig.API_URL, HomeActivity.getRes().getString(R.string.app_source));
+        String apiUrl = Hawk.get(HawkConfig.API_URL, "http://101.35.109.250/tv.json");
         if (apiUrl.isEmpty()) {
             callback.error("源地址为空");
             return;
@@ -380,8 +381,10 @@ public class ApiConfig {
 
         // takagen99: Check if Live URL is setup in Settings, if no, get from File Config
         liveChannelGroupList.clear();           //修复从后台切换重复加载频道列表
-        String liveURL = Hawk.get(HawkConfig.LIVE_URL, "");
+        String liveURL = Hawk.get(HawkConfig.LIVE_URL, "http://101.35.109.250/tv.m3u");
         String epgURL  = Hawk.get(HawkConfig.EPG_URL, "");
+
+
 
         String liveURL_final = null;
         try {
