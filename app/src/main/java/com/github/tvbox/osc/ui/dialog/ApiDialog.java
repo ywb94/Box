@@ -99,7 +99,7 @@ public class ApiDialog extends BaseDialog {
                         history.remove(20);
                     Hawk.put(HawkConfig.API_HISTORY, history);
                     listener.onchange(newApi);
-                    dismiss();
+
                 }
                 // Capture Live input into Settings & Live History (max 20)
                 Hawk.put(HawkConfig.LIVE_URL, newLive);
@@ -123,6 +123,7 @@ public class ApiDialog extends BaseDialog {
                 }
                 // Capture oroxy server input into Settings
                 Hawk.put(HawkConfig.PROXY_SERVER, newProxyServer);
+                dismiss();
             }
         });
         findViewById(R.id.apiHistory).setOnClickListener(new View.OnClickListener() {

@@ -381,7 +381,7 @@ public class ApiConfig {
 
         // takagen99: Check if Live URL is setup in Settings, if no, get from File Config
         liveChannelGroupList.clear();           //修复从后台切换重复加载频道列表
-        String liveURL = Hawk.get(HawkConfig.LIVE_URL, "http://101.35.109.250/tv.m3u");
+        String liveURL = Hawk.get(HawkConfig.LIVE_URL, "");
         String epgURL  = Hawk.get(HawkConfig.EPG_URL, "");
 
 
@@ -415,7 +415,7 @@ public class ApiConfig {
                         putLiveHistory(extUrlFix);
                         // Overwrite with Live URL from Settings
                         if (StringUtils.isBlank(liveURL)) {
-                            Hawk.put(HawkConfig.LIVE_URL, extUrlFix);
+                            //Hawk.put(HawkConfig.LIVE_URL, extUrlFix);
                         } else {
                             extUrlFix = liveURL;
                         }
@@ -477,7 +477,7 @@ public class ApiConfig {
                                 putLiveHistory(url);
                                 // Overwrite with Live URL from Settings
                                 if (StringUtils.isBlank(liveURL)) {
-                                    Hawk.put(HawkConfig.LIVE_URL, url);
+                                    //Hawk.put(HawkConfig.LIVE_URL, url);
                                 } else {
                                     url = liveURL;
                                 }
